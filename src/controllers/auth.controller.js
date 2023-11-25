@@ -164,12 +164,13 @@ module.exports = {
                         }
                     })
 
-                    return res.status(200).json({
-                        expiration: user.resetExp,
-                        now,
-                        expiredToken: user.resetExp > now ? false : true,
-                        message: `Your new password has been set to your account`
-                    })
+                    // return res.status(200).json({
+                    //     expiration: user.resetExp,
+                    //     now,
+                    //     expiredToken: user.resetExp > now ? false : true,
+                    //     message: `Your new password has been set to your account`
+                    // })
+                    return res.render('set-password', {user: findData})
                 } else {
                     throw createError(400, "Bad Request")
                 }
