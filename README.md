@@ -22,4 +22,3 @@ README.md
 :black_medium_square: Forget password to reset the password from an email (link)
 
 :black_medium_square: Node mailer 
-:email:
