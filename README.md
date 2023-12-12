@@ -17,7 +17,8 @@ README.md
 .sentryclirc
 ```
 ## Features
-:white_circle: Login/Register Form
+:black_medium_square: Login/Register Form
 
-:white_circle: Forget password to reset the password from an email (link)
-:white_circle: Node mailer
+:black_medium_square: Forget password to reset the password from an email (link)
+
+:black_medium_square: Node mailer :e-mail:
