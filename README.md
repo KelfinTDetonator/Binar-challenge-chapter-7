@@ -1,6 +1,6 @@
 ## Instructions
 1) Clone this repository
-```git clone [https://github.com/KelfinTDetonator/Binar-challenge-chapter-7.git]```
+```git clone https://github.com/KelfinTDetonator/Binar-challenge-chapter-7.git```
 2) Create your .env in local repository (or you can see an example in env.example file)
 ```
 PORT= YOUR_PORT
