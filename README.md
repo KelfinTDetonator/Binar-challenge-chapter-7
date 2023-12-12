@@ -13,6 +13,10 @@ SECRET_KEY= YOUR_SECRET_KEY
 ```
 node_modules
 .env
-prisma/seed.js
 README.md
+.sentryclirc
 ```
+## Features
+:white_circle: Login/Register Form
+:white_circle: Forget password to reset the password from an email (link)
+:white_circle: Node mailer
