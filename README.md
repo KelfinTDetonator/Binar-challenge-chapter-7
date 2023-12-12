@@ -17,6 +17,7 @@ README.md
 .sentryclirc
 ```
 ## Features
-:white_circle: Login/Register Form \n
+:white_circle: Login/Register Form
+
 :white_circle: Forget password to reset the password from an email (link)
 :white_circle: Node mailer
