@@ -22,3 +22,16 @@ README.md
 :black_medium_square: Forget password to reset the password from an email (link)
 
 :black_medium_square: Node mailer 
+
+## Technologies Used
+:black_medium_square: Express Js
+
+:black_medium_square: JWT Authentication
+
+:black_medium_square: Node Mailer
+
+:black_medium_square: Sentry.io
+
+:black_medium_square: Git
+
+:black_medium_square: Websocket socket.io
