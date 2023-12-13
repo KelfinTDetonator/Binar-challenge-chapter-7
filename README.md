@@ -61,5 +61,5 @@ README.md
 ## What I learned :computer:
 
 :black_medium_square: Using a robust debugger sentry.io to solve bugs or errors in my code  
-:black_medium_square: Using to reset user password with node mailer  
+:black_medium_square: Learn how to create a feature to reset an user password with node mailer  
 :black_medium_square: Learn how to use a websocket
