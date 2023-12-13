@@ -1,10 +1,16 @@
 <%- include ('./header') %>    
     <h1>set new pass</h1>
-    <form action="/api/v1/resetPassword" method="post">
+    <form action="/api/v1/resetPassword/<%= token %>" method="post">
         <div class="form-group">
-            <label for="">password</label>
-            <input type="hidden" name="key" value="<%=user.resetPasswordToken%>">
-            <input type="password" name="password" id="password">
+            <div class="mb-3">
+                <label for="newPassword">New Password</label>
+                <input type="newPassword" name="newPassword" id="newPassword">
+            </div>
+            <div class="mb-3">
+                <label for="retypedNewPassword">Confirm Password</label>
+                <input type="retypedNewPassword" name="retypedNewPassword" id="retypedNewPassword">
+            </div>
+            <input type="hidden" name="key">
         </div>
         <button class="btn btn-primary" type="submit">submit</button>
     </form>

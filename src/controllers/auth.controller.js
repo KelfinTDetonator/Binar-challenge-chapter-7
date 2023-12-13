@@ -58,8 +58,12 @@ module.exports = {
 
             const payload = { id: user.id, email: user.email }
             const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '1h' })
-            // return res.status(200).json(response.success("Login success", token))
-            res.redirect(`${req.protocol}://${req.get('host')}/api/v1/home`)
+            return res.status(200).json({
+                error: false,
+                message: "Login success",
+                token,
+            })
+            // res.redirect(`${req.protocol}://${req.get('host')}/api/v1/home`)
         } catch (error) {
             console.error(error)
             next(error)
@@ -87,7 +91,21 @@ module.exports = {
             //check if token is exist previously
             const tokenIsExist = (user.resetToken) !== null ? true : false
             if(tokenIsExist){
-                throw createError(403, "Please check your email, the token has been sent previously")
+                const tokenExpiry = user.resetToken.slice(32)
+                if(tokenExpiry <= Date.now()){
+                    await users.update({
+                        where: {
+                            id: user.id
+                        },
+                        data: {
+                            resetToken: null,
+                            resetExp: null,
+                        }
+                    })
+                } else if (tokenExpiry > Date.now()) {
+                    throw createError(403, "Please check your email, the token has been sent previously")
+                }
+                
             }
 
             //if not exist
@@ -132,10 +150,10 @@ module.exports = {
 
     resetPass: async(req, res, next) => {
         try {
-            const token = req.params.token.trim();
+            const token = req.params.token.trim(); // take the token from request params
+
             const {newPassword, retypedNewPassword} = req.body
-            console.log(token.trim());
-           
+
             if(!token){
                 throw createError(400, "Bad Request: token is missing");
             }
@@ -164,13 +182,13 @@ module.exports = {
                         }
                     })
 
-                    // return res.status(200).json({
-                    //     expiration: user.resetExp,
-                    //     now,
-                    //     expiredToken: user.resetExp > now ? false : true,
-                    //     message: `Your new password has been set to your account`
-                    // })
-                    return res.render('set-password', {user: findData})
+                    return res.status(200).json({
+                        expiration: user.resetExp,
+                        now,
+                        expiredToken: user.resetExp > now ? false : true,
+                        message: `Your new password has been set to your account`
+                    })
+                    // return res.render('setPass', {user: findData})
                 } else {
                     throw createError(400, "Bad Request")
                 }

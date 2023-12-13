@@ -29,7 +29,7 @@ const io = new Server(server);
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
-app.use(logger('combined'))      
+app.use(logger('dev'))      
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));     
 app.use(bodyParser.json())

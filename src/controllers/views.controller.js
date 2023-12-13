@@ -26,5 +26,21 @@ module.exports = {
         } catch (error) {
             next(error)
         }
+    },
+
+    viewResetPass: async(req, res, next) => {
+        try {
+            res.render('resetPass')
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    viewSetPass: async(req, res, next) => {
+        try {
+            res.render('setPass', {token: req.params.token})
+        } catch (error) {
+            next(error)
+        }
     }
 }
