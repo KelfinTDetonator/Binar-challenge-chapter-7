@@ -5,3 +5,4 @@ README.md
 
 # Sentry Config File
 .sentryclirc
+app.standard.yaml
